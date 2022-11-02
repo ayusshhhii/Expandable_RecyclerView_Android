@@ -36,6 +36,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
     public void onBindViewHolder(@NonNull ItemViewHolder holder, int position) {
 
         DataModel model = mList.get(position);
+
         holder.mTextView.setText(model.getItemText());
 
         boolean isExpandable = model.isExpandable();
@@ -55,6 +56,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
             @Override
             public void onClick(View v) {
                 model.setExpandable(!model.isExpandable());
+
                 list = model.getNestedList();
                 notifyItemChanged(holder.getAdapterPosition());
             }

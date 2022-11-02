@@ -4,6 +4,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -27,6 +28,12 @@ public class NestedAdapter extends RecyclerView.Adapter<NestedAdapter.NestedView
     @Override
     public void onBindViewHolder(@NonNull NestedViewHolder holder, int position) {
         holder.mTv.setText(mList.get(position));
+        holder.mTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(view.getContext(), ""+ mList.get(position) +" clicked", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override
